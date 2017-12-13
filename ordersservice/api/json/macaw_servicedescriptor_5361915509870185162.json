@@ -1,0 +1,295 @@
+
+{
+    "service":{
+        "namespace":"io.macaw.demo.petstore",
+        "name":"ordersservice",
+        "version":"1.0.0",
+        "domain-entities":{
+            "order":{
+                "description":"Orders Service Object",
+                "properties":{
+                    "orderid":{
+                        "type":"string",
+                        "description":"Order ID"
+                    },
+                    "userid":{
+                        "type":"string",
+                        "description":"User Id"
+                    },
+                    "orderdate":{
+                        "type":"int64",
+                        "description":"Order Date"
+                    },
+                    "shipaddr1":{
+                        "type":"string",
+                        "description":"Shipping Address1"
+                    },
+                    "shipaddr2":{
+                        "type":"string",
+                        "description":"Shipping Address2"
+                    },
+                    "shipcity":{
+                        "type":"string",
+                        "description":"Shipping City"
+                    },
+                    "shipstate":{
+                        "type":"string",
+                        "description":"Shipping State"
+                    },
+                    "shipzip":{
+                        "type":"string",
+                        "description":"Shipping Zip Code"
+                    },
+                    "shipcountry":{
+                        "type":"string",
+                        "description":"Shipping Country"
+                    },
+                    "billaddr1":{
+                        "type":"string",
+                        "description":"Billing Address1"
+                    },
+                    "billaddr2":{
+                        "type":"string",
+                        "description":"Billing Address2"
+                    },
+                    "billcity":{
+                        "type":"string",
+                        "description":"Billing City"
+                    },
+                    "billstate":{
+                        "type":"string",
+                        "description":"Billing State"
+                    },
+                    "billzip":{
+                        "type":"string",
+                        "description":"Billing Zip Code"
+                    },
+                    "billcountry":{
+                        "type":"string",
+                        "description":"Billing Country"
+                    },
+                    "courier":{
+                        "type":"string",
+                        "description":"courier"
+                    },
+                    "totalprice":{
+                        "type":"decimal64",
+                        "description":"Total Price"
+                    },
+                    "billtofirstname":{
+                        "type":"string",
+                        "description":"Billing Person First Name"
+                    },
+                    "billtolastname":{
+                        "type":"string",
+                        "description":"Billing Person Last Name"
+                    },
+                    "shiptofirstname":{
+                        "type":"string",
+                        "description":"Shipping To First Name"
+                    },
+                    "shiptolastname":{
+                        "type":"string",
+                        "description":"Shipping To Last Name"
+                    },
+                    "creditcard":{
+                        "type":"string",
+                        "description":"Credit Card"
+                    },
+                    "expirydate":{
+                        "type":"int64",
+                        "description":"Expiry Date"
+                    },
+                    "cardtype":{
+                        "type":"string",
+                        "description":"Card Type"
+                    },
+                    "locale":{
+                        "type":"string",
+                        "description":"Locale"
+                    }
+                }
+            },
+            "lineitem":{
+                "description":"Line Item Service Object",
+                "properties":{
+                    "orderid":{
+                        "type":"string",
+                        "description":"Order ID"
+                    },
+                    "linenum":{
+                        "type":"int32",
+                        "description":"Line Item Number"
+                    },
+                    "itemid":{
+                        "type":"string",
+                        "description":"Item Id"
+                    },
+                    "quantity":{
+                        "type":"int32",
+                        "description":"Quantity"
+                    },
+                    "unitprice":{
+                        "type":"decimal64",
+                        "description":"Unit Price"
+                    }
+                }
+            }
+        },
+        "apis":[
+            {
+                "name":"add-order",
+                "description":"Create new Order",
+                "inputs":[
+                    {
+                        "name":"order",
+                        "type":"order",
+                        "description":"Order Object"
+                    }
+                ],
+                "output":{
+                    "name":"order",
+                    "type":"order",
+                    "description":"Returns newly added Order object"
+                }
+            },
+            {
+                "name":"add-lineitem",
+                "description":"Create new Line Item",
+                "inputs":[
+                    {
+                        "name":"lineitem",
+                        "type":"lineitem",
+                        "description":"Line Item Object"
+                    }
+                ],
+                "output":{
+                    "name":"lineitem",
+                    "type":"lineitem",
+                    "description":"Returns the Line Item object"
+                }
+            },
+            {
+                "name":"update-lineitem",
+                "description":"Update Line Item",
+                "inputs":[
+                    {
+                        "name":"lineitem",
+                        "type":"lineitem",
+                        "description":"Line Item Details"
+                    }
+                ],
+                "output":{
+                    "name":"lineitem",
+                    "type":"lineitem",
+                    "description":"Line Item Details"
+                }
+            },
+            {
+                "name":"delete-lineitem",
+                "description":"Delete Line Item",
+                "inputs":[
+                    {
+                        "name":"lineitemid",
+                        "type":"string",
+                        "description":"Line Item Id"
+                    }
+                ],
+                "output":{
+                    "name":"output",
+                    "type":"string",
+                    "description":"Return message"
+                }
+            },
+            {
+                "name":"get-lineitems-by-orderid",
+                "description":"Returns all line items for an order",
+                "inputs":[
+                    {
+                        "name":"orderid",
+                        "type":"string",
+                        "description":"Order Id"
+                    }
+                ],
+                "output":{
+                    "type":"list",
+                    "item":"lineitem",
+                    "description":"Line Item for selected Order"
+                }
+            },
+            {
+                "name":"update-order",
+                "description":"Update Order",
+                "inputs":[
+                    {
+                        "name":"order",
+                        "type":"order",
+                        "description":"Order Details"
+                    }
+                ],
+                "output":{
+                    "name":"order",
+                    "type":"order",
+                    "description":"Order Details"
+                }
+            },
+            {
+                "name":"delete-order",
+                "description":"Delete Order",
+                "inputs":[
+                    {
+                        "name":"orderid",
+                        "type":"string",
+                        "description":"Order Id"
+                    }
+                ],
+                "output":{
+                    "type":"string",
+                    "description":"Returns message"
+                }
+            },
+            {
+                "name":"get-all-orders-by-userid",
+                "description":"Returns all orders by user id",
+                "inputs":[
+                    {
+                        "name":"userid",
+                        "type":"string",
+                        "description":"User Id"
+                    }
+                ],
+                "output":{
+                    "name":"orders",
+                    "type":"list",
+                    "item":"order",
+                    "description":"Orders for selected User"
+                }
+            },
+            {
+                "name":"get-order-by-orderid",
+                "description":"Get Order by Order ID",
+                "inputs":[
+                    {
+                        "name":"orderid",
+                        "type":"string",
+                        "description":"Order Id"
+                    }
+                ],
+                "output":{
+                    "name":"order",
+                    "type":"order",
+                    "description":"Order Information"
+                }
+            }
+        ],
+        "notifications":{
+        },
+        "options":{
+            "code-gen":{
+                "java":{
+                    "package-name":"io.macaw.demo.petstore.ordersservice"
+                }
+            }
+        }
+    }
+}

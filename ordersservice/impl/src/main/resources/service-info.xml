@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<service implementation-class="io.macaw.demo.petstore.ordersservice.impl.Ordersservice" name="ordersservice" namespace="io.macaw.demo.petstore" version="1.0.0">
+    <service-dependencies/>
+    <properties>
+        <managed>
+            <property-group name="service-deployment-config">
+                <property name="service.registry.host" value="localhost"/>
+                <property name="service.registry.port" value="8443"/>
+                <property name="service.registry.protocol" value="https"/>
+                <property name="cfx.ssl.truststore.location" value="<truststore location>\"/>
+                <property name="cfx.ssl.truststore.password" value="truststore-password-goes-here"/>
+            </property-group>
+        </managed>
+    </properties>
+    <data-converters>
+        <data-converter class="io.macaw.demo.petstore.ordersservice.JsonConverter" data-type="json"/>
+    </data-converters>
+</service>

@@ -1,0 +1,33 @@
+{
+ "id": "c131e955-c748-5e39-a5a7-3cdfa52397b1", 
+ "name": "Macaw Service Blueprint for ordersservice", 
+ "description": "Macaw Service Blueprint for ordersservice", 
+ "category": "Macaw Services", 
+ "tag": "MicroServices", 
+ "icon": "microservices", 
+ "published": {
+  "date": "2017-12-09T02:11:10.178000", 
+  "organization": "macaw.io", 
+  "user": "macaw"
+ }, 
+ "revision": "1.0", 
+ "services": [
+  {
+   "minQuantity": 0, 
+   "configDescriptors": [], 
+   "name": "ordersservice-v1.0.0", 
+   "maxQuantity": 8, 
+   "exposePorts": [], 
+   "volumes": [], 
+   "id": "ordersservice", 
+   "defaultQuantity": 1
+  }
+ ], 
+ "webapps": [], 
+ "dependencies": [], 
+ "deployment": {
+  "order": [
+   "ordersservice"
+  ]
+ }
+}
