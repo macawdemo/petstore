@@ -1,0 +1,349 @@
+
+{
+    "service":{
+        "namespace":"io.macaw.demo.petstore",
+        "name":"userservice",
+        "version":"1.0.0",
+        "domain-entities":{
+            "account":{
+                "description":"Account Service Object",
+                "properties":{
+                    "userid":{
+                        "type":"string",
+                        "description":"User ID"
+                    },
+                    "email":{
+                        "type":"string",
+                        "description":"Email"
+                    },
+                    "firstname":{
+                        "type":"string",
+                        "description":"First Name"
+                    },
+                    "lastname":{
+                        "type":"string",
+                        "description":"Last Name"
+                    },
+                    "status":{
+                        "type":"boolean",
+                        "description":"Status"
+                    },
+                    "addr1":{
+                        "type":"string",
+                        "description":"Address 1"
+                    },
+                    "addr2":{
+                        "type":"string",
+                        "description":"Address 2"
+                    },
+                    "city":{
+                        "type":"string",
+                        "description":"City"
+                    },
+                    "state":{
+                        "type":"string",
+                        "description":"State"
+                    },
+                    "zip":{
+                        "type":"string",
+                        "description":"Zip Code"
+                    },
+                    "country":{
+                        "type":"string",
+                        "description":"Country"
+                    },
+                    "phone":{
+                        "type":"string",
+                        "description":"Phone"
+                    }
+                }
+            },
+            "profile":{
+                "description":"Profile Object",
+                "properties":{
+                    "userid":{
+                        "type":"string",
+                        "description":"User ID"
+                    },
+                    "langpref":{
+                        "type":"string",
+                        "description":"Language Preference"
+                    },
+                    "favcategory":{
+                        "type":"string",
+                        "description":"Favorite Category"
+                    },
+                    "optedfor":{
+                        "type":"boolean",
+                        "description":"User Opted For"
+                    },
+                    "banneropt":{
+                        "type":"boolean",
+                        "description":"Show Banner?"
+                    }
+                }
+            },
+            "bannerdata":{
+                "description":"Banner Data Object",
+                "properties":{
+                    "favcategory":{
+                        "type":"string",
+                        "description":"Favorite Category"
+                    },
+                    "bannername":{
+                        "type":"string",
+                        "description":"Banner Name"
+                    }
+                }
+            }
+        },
+        "apis":[
+            {
+                "name":"add-account",
+                "description":"Create new account",
+                "inputs":[
+                    {
+                        "name":"account",
+                        "type":"account",
+                        "description":"Account Object"
+                    }
+                ],
+                "output":{
+                    "name":"account",
+                    "type":"account",
+                    "description":"Returns the Account object"
+                }
+            },
+            {
+                "name":"update-account",
+                "description":"Update Account",
+                "inputs":[
+                    {
+                        "name":"account",
+                        "type":"account",
+                        "description":"Account Details"
+                    }
+                ],
+                "output":{
+                    "name":"account",
+                    "type":"account",
+                    "description":"Account Details"
+                }
+            },
+            {
+                "name":"delete-account",
+                "description":"Delete Account",
+                "inputs":[
+                    {
+                        "name":"account",
+                        "type":"account",
+                        "description":"Account Object"
+                    }
+                ],
+                "output":{
+                    "type":"string",
+                    "description":"Returns message"
+                }
+            },
+            {
+                "name":"get-all-accounts",
+                "description":"Returns all user accounts",
+                "inputs":[
+                ],
+                "output":{
+                    "type":"list",
+                    "item":"account",
+                    "description":"All user accounts"
+                }
+            },
+            {
+                "name":"create-profile",
+                "description":"Create profile for newly registered account",
+                "inputs":[
+                    {
+                        "name":"profile",
+                        "type":"profile",
+                        "description":"Create profile for newly created account"
+                    }
+                ],
+                "output":{
+                    "type":"profile",
+                    "description":"Newly Created Profile Information"
+                }
+            },
+            {
+                "name":"update-profile",
+                "description":"Update profile ",
+                "inputs":[
+                    {
+                        "name":"profile",
+                        "type":"profile",
+                        "description":"update Profile"
+                    }
+                ],
+                "output":{
+                    "type":"profile",
+                    "description":"Updated profile information"
+                }
+            },
+            {
+                "name":"delete-profile",
+                "description":"Delete profile",
+                "inputs":[
+                    {
+                        "name":"userid",
+                        "type":"string",
+                        "description":"Delete profile for user id"
+                    }
+                ],
+                "output":{
+                    "type":"string",
+                    "description":"Profile deletion status"
+                }
+            },
+            {
+                "name":"get-profile-by-userid",
+                "description":"Create profile for newly registered account",
+                "inputs":[
+                    {
+                        "name":"userid",
+                        "type":"string",
+                        "description":"Get Profile for supplied user Id"
+                    }
+                ],
+                "output":{
+                    "name":"Profile",
+                    "type":"profile",
+                    "description":"Profile Information"
+                }
+            },
+            {
+                "name":"create-bannerdata",
+                "description":"Create Banner Data",
+                "inputs":[
+                    {
+                        "name":"favcategory",
+                        "type":"string",
+                        "description":"Favorite Category"
+                    },
+                    {
+                        "name":"bannername",
+                        "type":"string",
+                        "description":"Banner Name"
+                    }
+                ],
+                "output":{
+                    "type":"bannerdata",
+                    "description":"Banner Data Information"
+                }
+            },
+            {
+                "name":"get-bannername-by-favcategory",
+                "description":"Get Banner name for favorite Category",
+                "inputs":[
+                    {
+                        "name":"favcategory",
+                        "type":"string",
+                        "description":"Favorite Category"
+                    }
+                ],
+                "output":{
+                    "name":"bannername",
+                    "type":"string",
+                    "description":"Banner Name "
+                }
+            },
+            {
+                "name":"update-bannername",
+                "description":"Update banner name for favorite Category",
+                "inputs":[
+                    {
+                        "name":"favcategory",
+                        "type":"string",
+                        "description":"Favorite Category"
+                    },
+                    {
+                        "name":"bannername",
+                        "type":"string",
+                        "description":"Banner Name"
+                    }
+                ],
+                "output":{
+                    "type":"bannerdata",
+                    "description":"Returns bannerdata"
+                }
+            },
+            {
+                "name":"update-password",
+                "description":"Update account entered by user",
+                "inputs":[
+                    {
+                        "name":"userid",
+                        "type":"string",
+                        "description":"User Id"
+                    },
+                    {
+                        "name":"password",
+                        "type":"string",
+                        "description":"password"
+                    }
+                ],
+                "output":{
+                    "type":"string",
+                    "description":"Returns weather password update is successful or not"
+                }
+            },
+            {
+                "name":"get-account-by-id",
+                "description":"Get account by userid",
+                "inputs":[
+                    {
+                        "name":"id",
+                        "type":"string",
+                        "description":"User Id"
+                    }
+                ],
+                "output":{
+                    "name":"account",
+                    "type":"account",
+                    "description":"Account Details"
+                }
+            },
+            {
+                "name":"authenticate-account",
+                "description":"authenticate account",
+                "inputs":[
+                    {
+                        "name":"id",
+                        "type":"string",
+                        "description":"User Id"
+                    },
+                    {
+                        "name":"password",
+                        "type":"string",
+                        "description":"Password"
+                    }
+                ],
+                "output":{
+                    "type":"string",
+                    "description":"success or failure message"
+                }
+            }
+        ],
+        "notifications":{
+            "publish":{
+                "account_deleted":{
+                    "payload-type":"string",
+                    "description":"Notification published when an account is deleted."
+                }
+            }
+        },
+        "options":{
+            "code-gen":{
+                "java":{
+                    "package-name":"io.macaw.demo.petstore.userservice"
+                }
+            }
+        }
+    }
+}

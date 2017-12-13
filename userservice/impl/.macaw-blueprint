@@ -1,0 +1,33 @@
+{
+ "id": "c106245d-b8e0-57df-9ab6-22184db6302d", 
+ "name": "Macaw Service Blueprint for userservice", 
+ "description": "Macaw Service Blueprint for userservice", 
+ "category": "Macaw Services", 
+ "tag": "MicroServices", 
+ "icon": "microservices", 
+ "published": {
+  "date": "2017-12-07T10:15:05.466000", 
+  "organization": "macaw.io", 
+  "user": "macaw"
+ }, 
+ "revision": "1.0", 
+ "services": [
+  {
+   "minQuantity": 0, 
+   "configDescriptors": [], 
+   "name": "userservice-v1.0.0", 
+   "maxQuantity": 8, 
+   "exposePorts": [], 
+   "volumes": [], 
+   "id": "userservice", 
+   "defaultQuantity": 1
+  }
+ ], 
+ "webapps": [], 
+ "dependencies": [], 
+ "deployment": {
+  "order": [
+   "userservice"
+  ]
+ }
+}
