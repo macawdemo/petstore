@@ -1,0 +1,9 @@
+<schema>
+<stmt>
+<![CDATA[ CREATE TABLE inventory (
+ itemid     VARCHAR (80)  NOT NULL ,
+ quantity		BIGINT,
+ PRIMARY KEY ( itemid )
+ ) ENGINE = InnoDB; ]]>
+</stmt>
+</schema>

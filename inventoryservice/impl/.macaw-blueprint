@@ -1,0 +1,33 @@
+{
+ "id": "92363e65-127b-5293-8d19-241ba8f2b6ca", 
+ "name": "Macaw Service Blueprint for inventoryservice", 
+ "description": "Macaw Service Blueprint for inventoryservice", 
+ "category": "Macaw Services", 
+ "tag": "MicroServices", 
+ "icon": "microservices", 
+ "published": {
+  "date": "2017-12-06T15:49:25.527000", 
+  "organization": "macaw.io", 
+  "user": "macaw"
+ }, 
+ "revision": "1.0", 
+ "services": [
+  {
+   "minQuantity": 0, 
+   "configDescriptors": [], 
+   "name": "inventoryservice-v1.0.0", 
+   "maxQuantity": 8, 
+   "exposePorts": [], 
+   "volumes": [], 
+   "id": "inventoryservice", 
+   "defaultQuantity": 1
+  }
+ ], 
+ "webapps": [], 
+ "dependencies": [], 
+ "deployment": {
+  "order": [
+   "inventoryservice"
+  ]
+ }
+}

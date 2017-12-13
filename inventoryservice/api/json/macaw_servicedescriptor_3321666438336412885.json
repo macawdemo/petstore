@@ -1,0 +1,103 @@
+
+{
+    "service":{
+        "namespace":"io.macaw.demo.petstore",
+        "name":"inventoryservice",
+        "version":"1.0.0",
+        "domain-entities":{
+            "inventory":{
+                "description":"Orders Service Object",
+                "properties":{
+                    "itemid":{
+                        "type":"string",
+                        "description":"Item ID"
+                    },
+                    "quantity":{
+                        "type":"int64",
+                        "description":"User Id"
+                    }
+                }
+            }
+        },
+        "apis":[
+            {
+                "name":"add-inventory",
+                "description":"Create new inventory",
+                "inputs":[
+                    {
+                        "name":"itemid",
+                        "type":"string",
+                        "description":"Item Id"
+                    },
+                    {
+                        "name":"quantity",
+                        "type":"int64",
+                        "description":"Quantity"
+                    }
+                ],
+                "output":{
+                    "name":"inventory",
+                    "type":"inventory",
+                    "description":"Returns newly added inventory object"
+                }
+            },
+            {
+                "name":"update-inventory",
+                "description":"Update Inventory",
+                "inputs":[
+                    {
+                        "name":"inventory",
+                        "type":"inventory",
+                        "description":"Inventory"
+                    }
+                ],
+                "output":{
+                    "name":"inventory",
+                    "type":"inventory",
+                    "description":"Inventory"
+                }
+            },
+            {
+                "name":"delete-inventory",
+                "description":"Delete Inventory",
+                "inputs":[
+                    {
+                        "name":"itemid",
+                        "type":"string",
+                        "description":"Item Id"
+                    }
+                ],
+                "output":{
+                    "name":"output",
+                    "type":"string",
+                    "description":"Return message"
+                }
+            },
+            {
+                "name":"get-stock-by-itemid",
+                "description":"Returns stock for item",
+                "inputs":[
+                    {
+                        "name":"itemid",
+                        "type":"string",
+                        "description":"Item Id"
+                    }
+                ],
+                "output":{
+                    "name":"stock",
+                    "type":"int64",
+                    "description":"Stock"
+                }
+            }
+        ],
+        "notifications":{
+        },
+        "options":{
+            "code-gen":{
+                "java":{
+                    "package-name":"io.macaw.demo.petstore.inventoryservice"
+                }
+            }
+        }
+    }
+}
