@@ -1,0 +1,467 @@
+
+{
+    "service":{
+        "namespace":"io.macaw.demo.petstore",
+        "name":"productsservice",
+        "version":"1.0.0",
+        "domain-entities":{
+            "product":{
+                "description":"Product Service Object",
+                "properties":{
+                    "productid":{
+                        "type":"string",
+                        "description":"Product ID"
+                    },
+                    "category":{
+                        "type":"string",
+                        "description":"Category"
+                    },
+                    "name":{
+                        "type":"string",
+                        "description":"Product Name"
+                    },
+                    "description":{
+                        "type":"string",
+                        "description":"Product Description"
+                    }
+                }
+            },
+            "item":{
+                "description":"Item Service Object",
+                "properties":{
+                    "itemid":{
+                        "type":"string",
+                        "description":"Item ID"
+                    },
+                    "productid":{
+                        "type":"string",
+                        "description":"Product Id"
+                    },
+                    "listprice":{
+                        "type":"decimal64",
+                        "description":"List Price"
+                    },
+                    "unitcost":{
+                        "type":"decimal64",
+                        "description":"Unit Cost"
+                    },
+                    "supplierid":{
+                        "type":"string",
+                        "description":"Supplier Id"
+                    },
+                    "status":{
+                        "type":"string",
+                        "description":"item active status"
+                    },
+                    "attr1":{
+                        "type":"string",
+                        "description":"Attribute 1"
+                    },
+                    "attr2":{
+                        "type":"string",
+                        "description":"Attribute 2"
+                    },
+                    "attr3":{
+                        "type":"string",
+                        "description":"Attribute 3"
+                    },
+                    "attr4":{
+                        "type":"string",
+                        "description":"Attribute 4"
+                    },
+                    "attr5":{
+                        "type":"string",
+                        "description":"Attribute 5"
+                    }
+                }
+            },
+            "supplier":{
+                "description":"Supplier Data Object",
+                "properties":{
+                    "supplierid":{
+                        "type":"string",
+                        "description":"Supplier ID"
+                    },
+                    "name":{
+                        "type":"string",
+                        "description":"Supplier Name"
+                    },
+                    "status":{
+                        "type":"string",
+                        "description":"Supplier Status"
+                    },
+                    "addr1":{
+                        "type":"string",
+                        "description":"Address 1"
+                    },
+                    "addr2":{
+                        "type":"string",
+                        "description":"Address 2"
+                    },
+                    "city":{
+                        "type":"string",
+                        "description":"City"
+                    },
+                    "state":{
+                        "type":"string",
+                        "description":"State"
+                    },
+                    "zip":{
+                        "type":"string",
+                        "description":"Zip Code"
+                    },
+                    "phone":{
+                        "type":"string",
+                        "description":"Phone"
+                    }
+                }
+            },
+            "category":{
+                "description":"Category Data Object",
+                "properties":{
+                    "categoryid":{
+                        "type":"string",
+                        "description":"Category Id"
+                    },
+                    "name":{
+                        "type":"string",
+                        "description":"Category Name"
+                    },
+                    "description":{
+                        "type":"string",
+                        "description":"Category Description"
+                    }
+                }
+            }
+        },
+        "apis":[
+            {
+                "name":"add-category",
+                "description":"Create new Category",
+                "inputs":[
+                    {
+                        "name":"category",
+                        "type":"category",
+                        "description":"Category Object"
+                    }
+                ],
+                "output":{
+                    "name":"category",
+                    "type":"category",
+                    "description":"Returns newly added Category object"
+                }
+            },
+            {
+                "name":"add-product",
+                "description":"Create new account",
+                "inputs":[
+                    {
+                        "name":"product",
+                        "type":"product",
+                        "description":"Product Object"
+                    }
+                ],
+                "output":{
+                    "name":"product",
+                    "type":"product",
+                    "description":"Returns the Product object"
+                }
+            },
+            {
+                "name":"update-category",
+                "description":"Update category",
+                "inputs":[
+                    {
+                        "name":"category",
+                        "type":"category",
+                        "description":"Category Details"
+                    }
+                ],
+                "output":{
+                    "name":"category",
+                    "type":"category",
+                    "description":"Category Details"
+                }
+            },
+            {
+                "name":"delete-category",
+                "description":"Delete Category",
+                "inputs":[
+                    {
+                        "name":"categoryid",
+                        "type":"string",
+                        "description":"Category Id"
+                    }
+                ],
+                "output":{
+                    "type":"string",
+                    "description":"Returns message"
+                }
+            },
+            {
+                "name":"get-all-categories",
+                "description":"Returns all categories",
+                "inputs":[
+                ],
+                "output":{
+                    "type":"list",
+                    "item":"category",
+                    "description":"Categories"
+                }
+            },
+            {
+                "name":"update-product",
+                "description":"Update Product",
+                "inputs":[
+                    {
+                        "name":"product",
+                        "type":"product",
+                        "description":"Product Details"
+                    }
+                ],
+                "output":{
+                    "name":"product",
+                    "type":"product",
+                    "description":"Product Details"
+                }
+            },
+            {
+                "name":"delete-product",
+                "description":"Delete Product",
+                "inputs":[
+                    {
+                        "name":"productid",
+                        "type":"string",
+                        "description":"Product Id"
+                    }
+                ],
+                "output":{
+                    "type":"string",
+                    "description":"Returns message"
+                }
+            },
+            {
+                "name":"get-all-products",
+                "description":"Returns all products",
+                "inputs":[
+                ],
+                "output":{
+                    "name":"products",
+                    "type":"list",
+                    "item":"product",
+                    "description":"Products"
+                }
+            },
+            {
+                "name":"get-product-by-productid",
+                "description":"Get Product by Product ID",
+                "inputs":[
+                    {
+                        "name":"productid",
+                        "type":"string",
+                        "description":"Product Id"
+                    }
+                ],
+                "output":{
+                    "name":"product",
+                    "type":"product",
+                    "description":"Product Information"
+                }
+            },
+            {
+                "name":"add-item",
+                "description":"Add Item",
+                "inputs":[
+                    {
+                        "name":"item",
+                        "type":"item",
+                        "description":"Add New Item"
+                    }
+                ],
+                "output":{
+                    "type":"item",
+                    "name":"item",
+                    "description":"Newly added item"
+                }
+            },
+            {
+                "name":"update-item",
+                "description":"Update item",
+                "inputs":[
+                    {
+                        "name":"item",
+                        "type":"item",
+                        "description":"Update Item"
+                    }
+                ],
+                "output":{
+                    "type":"item",
+                    "name":"item",
+                    "description":"Updated Item information"
+                }
+            },
+            {
+                "name":"delete-item",
+                "description":"Delete item",
+                "inputs":[
+                    {
+                        "name":"itemid",
+                        "type":"string",
+                        "description":"Delete item for item id"
+                    }
+                ],
+                "output":{
+                    "name":"output",
+                    "type":"string",
+                    "description":"Item deletion status"
+                }
+            },
+            {
+                "name":"get-item-by-itemid",
+                "description":"Get Item by Item ID",
+                "inputs":[
+                    {
+                        "name":"itemid",
+                        "type":"string",
+                        "description":"Get Item details for supplied item Id"
+                    }
+                ],
+                "output":{
+                    "name":"item",
+                    "type":"item",
+                    "description":"Items Information"
+                }
+            },
+            {
+                "name":"get-items-by-productid",
+                "description":"Get Items by Product ID",
+                "inputs":[
+                    {
+                        "name":"productid",
+                        "type":"string",
+                        "description":"Get Items for supplied product Id"
+                    }
+                ],
+                "output":{
+                    "name":"item",
+                    "item":"item",
+                    "type":"list",
+                    "description":"Items Information"
+                }
+            },
+            {
+                "name":"get-all-items",
+                "description":"Get all Items",
+                "inputs":[
+                ],
+                "output":{
+                    "name":"item",
+                    "item":"item",
+                    "type":"list",
+                    "description":"Items Information"
+                }
+            },
+            {
+                "name":"add-supplier",
+                "description":"Add Supplier Data",
+                "inputs":[
+                    {
+                        "name":"supplier",
+                        "type":"supplier",
+                        "description":"Add Supplier Information"
+                    }
+                ],
+                "output":{
+                    "name":"supplier",
+                    "type":"supplier",
+                    "description":"Supplier Information"
+                }
+            },
+            {
+                "name":"get-products-by-categoryid",
+                "description":"Get products for category id",
+                "inputs":[
+                    {
+                        "name":"categoryid",
+                        "type":"string",
+                        "description":"Category id"
+                    }
+                ],
+                "output":{
+                    "name":"products",
+                    "item":"product",
+                    "type":"list",
+                    "description":"Products"
+                }
+            },
+            {
+                "name":"update-supplier",
+                "description":"Update Supplier",
+                "inputs":[
+                    {
+                        "name":"supplier",
+                        "type":"supplier",
+                        "description":"Supplier"
+                    }
+                ],
+                "output":{
+                    "name":"output",
+                    "type":"supplier",
+                    "description":"Supplier Information"
+                }
+            },
+            {
+                "name":"get-all-suppliers",
+                "description":"Get all suppliers",
+                "inputs":[
+                ],
+                "output":{
+                    "type":"list",
+                    "item":"supplier",
+                    "description":"All Suppliers List"
+                }
+            },
+            {
+                "name":"get-supplier-by-id",
+                "description":"Get Supplier by supplierid",
+                "inputs":[
+                    {
+                        "name":"supplierid",
+                        "type":"string",
+                        "description":"Supplier Id"
+                    }
+                ],
+                "output":{
+                    "name":"supplier",
+                    "type":"supplier",
+                    "description":"Supplier Details"
+                }
+            },
+            {
+                "name":"delete-supplier",
+                "description":"delete supplier",
+                "inputs":[
+                    {
+                        "name":"supplierid",
+                        "type":"string",
+                        "description":"Supplier Id"
+                    }
+                ],
+                "output":{
+                    "name":"output",
+                    "type":"string",
+                    "description":"success or failure message"
+                }
+            }
+        ],
+        "notifications":{
+        },
+        "options":{
+            "code-gen":{
+                "java":{
+                    "package-name":"io.macaw.demo.petstore.productsservice"
+                }
+            }
+        }
+    }
+}
